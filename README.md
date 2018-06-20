@@ -1,5 +1,5 @@
 # 以CIFAR10数据为例的分类器
-实验课作业，由于是很经典的分类任务，所以整理了一下记录下来，实际上TensorFlow源码中就有很好的CIFAR10示例（包含单机和分布式多种版本），不过既然要交作业，自己的改起来方便一些。<br>
+实验课作业，由于是很经典的分类任务，所以整理了一下记录下来，实际上TensorFlow源码中就有很好的CIFAR10示例（包含单机和分布式多种版本），不过既然要交作业，自己的改起来方便一些。在基础CNN分类的版本外，添加了使用ResNet进行分类的实验，收敛速度远快于基础CNN。<br>
 ## 更新日志
 #### 18.6.20
 ##### 1、修改了张量流shape限制方式以适应不同batch的输入
@@ -34,4 +34,5 @@ global_step = tf.get_variable(
     train_op = tf.train.AdamOptimizer(lr).minimize(loss, global_step=global_step)
 ```
 ##### 3、将lrn层替换为bn层
-为了提高网络效果，效果很好
+提高网络效果，效果很好
+##### 4、添加额外的使用ResNet的脚本
