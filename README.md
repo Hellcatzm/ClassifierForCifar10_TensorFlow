@@ -1,0 +1,2 @@
+# ClassifierForCifar10_TensorFlow
+分类CIFAR10数据的小分类器，为了交作业写的，也是一个很典型的TensorFlow分类器DEMO
