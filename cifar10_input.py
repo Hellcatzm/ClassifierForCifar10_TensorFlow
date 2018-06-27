@@ -4,7 +4,7 @@
 import os
 import tensorflow as tf
 
-IMAGE_SIZE = 24
+# image_size = 32
 NUM_CLASSES = 10
 NUM_EXAMPLES_PER_EPOCH_FOR_TRAIN = 50000
 NUM_EXAMPLES_PER_EPOCH_FOR_EVAL = 10000
@@ -77,7 +77,7 @@ def read_cifar10(filename_queue):
       return result
 
 
-def distorted_inputs(data_dir, batch_size):
+def distorted_inputs(data_dir, batch_size, image_size=24):
     """
     读入&预处理图片
     :param data_dir: bin文件位置 
@@ -98,8 +98,8 @@ def distorted_inputs(data_dir, batch_size):
     read_input = read_cifar10(filename_queue)
     reshaped_image = tf.cast(read_input.uint8image, tf.float32)
 
-    height = IMAGE_SIZE
-    width = IMAGE_SIZE
+    height = image_size
+    width = image_size
     # 随机裁剪
     distorted_image = tf.random_crop(reshaped_image, [height, width, 3])
     # 随机翻转
@@ -168,7 +168,7 @@ def _generate_image_and_label_batch(image, label, min_queue_examples,
     return images, tf.reshape(label_batch, [batch_size])
 
 
-def inputs(eval_data, data_dir, batch_size):
+def inputs(eval_data, data_dir, batch_size, image_size=24):
     """Construct input for CIFAR evaluation using the Reader ops.
     
     Args:
@@ -177,7 +177,7 @@ def inputs(eval_data, data_dir, batch_size):
     batch_size: Number of images per batch.
     
     Returns:
-    images: Images. 4D tensor of [batch_size, IMAGE_SIZE, IMAGE_SIZE, 3] size.
+    images: Images. 4D tensor of [batch_size, image_size, image_size, 3] size.
     labels: Labels. 1D tensor of [batch_size] size.
     """
     # 建立文件名队列
@@ -201,8 +201,8 @@ def inputs(eval_data, data_dir, batch_size):
     read_input = read_cifar10(filename_queue)
     reshaped_image = tf.cast(read_input.uint8image, tf.float32)
 
-    height = IMAGE_SIZE
-    width = IMAGE_SIZE
+    height = image_size
+    width = image_size
 
     # 重置图片大小，简单裁剪或填充
     float_image = tf.image.resize_image_with_crop_or_pad(reshaped_image,
