@@ -86,6 +86,8 @@ global_step = tf.get_variable(
     # minimize需要接收global_step才会更新lr的衰减
     train_op = tf.train.AdamOptimizer(lr).minimize(loss, global_step=global_step)
 ```
+梯度衰减效果如下：<br>
+![](https://github.com/Hellcatzm/ClassifierForCifar10_TensorFlow/blob/master/%E5%AD%A6%E4%B9%A0%E7%8E%87%E8%A1%B0%E5%87%8F.png)
 ##### 3、将lrn层替换为bn层
 提高网络效果，效果很好
 ##### 4、添加ResNet脚本
