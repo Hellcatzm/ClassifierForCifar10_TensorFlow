@@ -35,7 +35,7 @@ python Res_Train.py
 ```
 为了提高网络性能，我们使用滑动平均处理，不过实际来看没什么效果，bn层倒是效果很明显<br>
 最终能达到88%的准确率，损失函数变化如下：<br>
-[](https://github.com/Hellcatzm/ClassifierForCifar10_TensorFlow/blob/master/ResNet%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E8%A1%B0%E5%87%8F%E5%9B%BE.png)<br>
+![](https://github.com/Hellcatzm/ClassifierForCifar10_TensorFlow/blob/master/ResNet%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E8%A1%B0%E5%87%8F%E5%9B%BE.png)<br>
 ## 五、预测图片
 将预测图片放在images文件夹下，注意需要时jpg文件格式，然后运行：<br>
 ```bash
